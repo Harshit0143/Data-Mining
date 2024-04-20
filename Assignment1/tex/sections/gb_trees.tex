@@ -1,0 +1,20 @@
+\subsection{Gradient Boosted Trees}
+Next up, we train Gradient Boosted trees, and observe their performance with default hyperparameter values. Here are the results:\\\\
+
+\begin{tabular}{|p{4cm}||p{2 cm}||p{3cm}||p{3cm}|}
+\hline
+\multicolumn{4}{|c|}{\texttt{num\_trees}=300, \texttt{max\_depth}=16}\\
+\hline
+\textbf{Pre-processing} & \textbf{Train-Test split} (\%) &\textbf{Training OOB Accuracy (\%)} & \textbf{Testing OOB Accuracy (\%)} \\
+\hline
+Raw & 100 : 0& 99.80& -\\
+\hline
+Gender, Attendance, Grade encoded & 100 : 0  & 99.40&- \\
+\hline
+Raw & 70 : 30  & 97.51 & 90.65 \\
+\hline
+Gender, Attendance, Grade encoded & 70 : 30  & 97.93 & 86.33 \\
+\hline
+\end{tabular}\newline
+
+In comparison to random forests for the same parameters, we observe that gradient boosted trees performed better. This is consistent with the plots presented during lecture.

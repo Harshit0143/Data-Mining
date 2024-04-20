@@ -1,0 +1,19 @@
+\section{Comparison}
+
+We train a \textbf{Random Forest} and \textbf{Gradient Boosted Trees} on the same split, with \textbf{30} decision trees in each and 
+the default max-depth, i.e. 16.\\
+
+
+\begin{tabular}{ |p{3cm}||p{3cm}||p{5cm}|}
+\hline
+\multicolumn{3}{|c|}{\texttt{num\_trees}=30, \texttt{max\_depth}=16}\\
+\hline
+\textbf{Model}& \textbf{Random Forest OOB Accuracy (\%)}&\textbf{Gradient Boosted Trees OOB Accuracy(\%)}\\
+\hline
+\textbf{{Training}} &  93.35 & 97.50 \\
+\textbf{{Test}} &  85.61 & 90.64 \\
+\hline
+\end{tabular}\newline
+
+We observe that GBDT clearly outperforms RF on train and test dataset.\\
+In fact, both of them cross the required threshold of 85\%.

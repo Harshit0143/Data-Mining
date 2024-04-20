@@ -1,0 +1,198 @@
+\newpage
+\section{Hyperparameter Tuning}
+\subsection{Grid Search}
+In Grid Search, the domain of the hyperparameters is divided into a discrete grid. Then for every combination of values of this grid, \hyperlink{acc_def}{accuracy} is computed using k-fold cross-validation. The point of the grid that maximizes the average value in cross-validation, is the optimal combination of values for the hyperparameters.
+\\
+Library function used: \texttt{\href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html}{GridSearchCV}} from \texttt{sklearn.model\_selection}
+\subsubsection{Decision Tree Classifier}
+\begin{table}[h!]
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Value} \\
+      \hline
+      \texttt{max\_depth} & 15 \\
+      \texttt{min\_samples\_leaf} & 1 \\
+      \texttt{min\_samples\_split} & 2\\
+      \hline
+    \end{tabular}
+    \caption{Best parameters}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Metric} & \textbf{Default} & \textbf{Grid Search} \\
+      \hline
+      Accuracy & 87.63\% & 88.08\% \\
+      Precision (macro) & 87.5\% & 87.9261\% \\
+      Recall (macro) & 87.47\% & 87.9202\% \\
+      F1-Score (macro) & 87.48\% & 87.9156\% \\
+      \hline
+    \end{tabular}
+    \caption{Performance Metrics on test set}
+  \end{minipage}
+\end{table}
+
+
+Time taken for grid search: \texttt{605.20} seconds.
+
+\subsubsection{Random Forest Classifier}
+\begin{table}[h!]
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Value} \\
+      \hline
+      \texttt{max\_depth} & None \\
+      \texttt{min\_samples\_leaf} & 1 \\
+      \texttt{min\_samples\_split} & 2 \\
+      \texttt{n\_estimators} & 150 \\
+      \hline
+    \end{tabular}
+    \caption{Best parameters}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Metric} & \textbf{Default} & \textbf{Grid Search} \\
+      \hline
+      Accuracy & 96.9\% & 97.11\% \\
+      Precision (macro) & 96.88\% & 97.10\% \\
+      Recall (macro) & 96.87\% & 96.89\% \\
+      F1-Score (macro) & 96.87\% & 96.89\% \\
+      \hline
+    \end{tabular}
+    \caption{Performance Metrics on test set}
+  \end{minipage}
+\end{table}
+
+Time taken for grid search: \texttt{4151.61} seconds.
+
+\subsubsection{Na\"{i}ve Bayes Classifier}
+\begin{table}[h!]
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Value} \\
+      \hline
+      \texttt{No parameters to tune} & \\
+      \hline
+    \end{tabular}
+    \caption{Best Parameters}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Metric} & \textbf{Default} & \textbf{Grid Search} \\
+      \hline
+      Accuracy & 83.57\% & 83.57\% \\
+      Precision (macro) & 84.29\% & 84.29\% \\
+      Recall (macro) & 83.26\% & 83.26\% \\
+      F1-Score (macro) & 83.42\% & 83.42\% \\
+      \hline
+    \end{tabular}
+    \caption{Performance Metrics on test set}
+  \end{minipage}
+\end{table}
+
+
+Time taken for grid search: \texttt{1.25} seconds.
+\newpage
+\subsubsection{KNN Classifier}
+\begin{table}[h!]
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Value} \\
+      \hline
+      \texttt{n\_neighbors} & 3 \\
+      \texttt{weights} & distance \\
+      \hline
+    \end{tabular}
+    \caption{Best parameters}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Metric} & \textbf{Default} & \textbf{Grid Search} \\
+      \hline
+      Accuracy & 96.88\% & 97.17\% \\
+      Precision (macro) & 96.93\% & 97.19\% \\
+      Recall (macro) & 96.85\% & 97.13\% \\
+      F1-Score (macro) & 96.87\% & 97.15\% \\
+      \hline
+    \end{tabular}
+    \caption{Performance Metrics on test set}
+  \end{minipage}
+\end{table}
+
+
+Time taken for grid search: \texttt{284.33} seconds.
+
+\subsubsection{Neural Network Classifier}
+\begin{table}[h!]
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Value} \\
+      \hline
+      \texttt{activation} & relu \\
+      \texttt{alpha} & 0.001 \\
+      \texttt{hidden\_layer\_sizes} & 300 \\
+      \texttt{epochs} & 5 \\
+      \hline
+    \end{tabular}
+    \caption{Best parameters}
+  \end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Metric} & \textbf{Default} & \textbf{Grid Search} \\
+      \hline
+      Accuracy & 97.62\% & 98.17\% \\
+      Precision (macro) & 97.63\% & 98.17\% \\
+      Recall (macro) & 97.60\% & 98.16\% \\
+      F1-Score (macro) & 97.60\% & 98.16\% \\
+      \hline
+    \end{tabular}
+    \caption{Performance Metrics on test set}
+  \end{minipage}
+\end{table}
+
+
+Time taken for grid search: \texttt{3731.32} seconds.
+
+We did not tune the \verb|epoch| parameter for the Neural Network.
+
+\subsection{Conclusion}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Model}  &\textbf{Default} & \textbf{Grid Search}\\
+\hline
+\texttt{Decision Tree} & 87.63\% & 88.08\%\\
+\texttt{Random Forest} & 96.9\% & 97.11\%\\
+\texttt{Na\"{i}ve Bayes} & 83.57\% & 83.57\%\\
+\texttt{KNN Classifier} & 96.88\% & 97.17\%\\
+\texttt{Neural Network} & 97.62\%&  98.17\%\\
+
+
+\hline
+\end{tabular}
+\caption{Accuracy on test set tuned using default settings and Grid Searched hyperparameters}
+\end{table}
+
+All models except Na\"{i}ve Bayes show an improvement when parameters obtained from Grid Search are used. There is no improvement on Na\"{i}ve Bayes as it does not take any hyper-parameters.
